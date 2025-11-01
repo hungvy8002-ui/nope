@@ -248,7 +248,8 @@
           pipe.height = Math.floor(Math.random() * 250) + 100;
           score++;
           scoreDisplay.textContent = score;
-        if (Math.random() < 1.5) {
+        // 👻 Linh hồn có thể xuất hiện ngẫu nhiên
+       if (!isGameOver && Math.random() < 0.008 && ghost.style.opacity === "0") {
           summonGhost();
         }
 
@@ -281,6 +282,7 @@
   </script>
 </body>
 </html>
+
 
 
 
