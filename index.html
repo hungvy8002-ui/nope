@@ -249,7 +249,7 @@
           score++;
           scoreDisplay.textContent = score;
         // 👻 Linh hồn có thể xuất hiện ngẫu nhiên
-       if (!isGameOver && Math.random() < 0.008 && ghost.style.opacity === "0") {
+       if (!isGameOver && Math.random() < 0.01 && ghost.style.opacity === "0") {
           summonGhost();
         }
 
@@ -282,6 +282,7 @@
   </script>
 </body>
 </html>
+
 
 
 
