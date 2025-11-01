@@ -111,6 +111,22 @@
     #retry-btn:active {
       background: #e33;
     }
+    #ghost {
+      position: absolute;
+      top: 200px;
+      left: 400px;
+      width: 80px;
+      height: 80px;
+      background-image: url("data:image/png;base64,PASTE_YOUR_GHOST_IMAGE_HERE");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s linear, left 4s linear;
+      pointer-events: none;
+      z-index: 5;
+    }
+
   </style>
 </head>
 <body>
@@ -125,6 +141,7 @@
     <!-- 盻刃g 2 -->
     <div class="pipe top" id="pipeTop2"></div>
     <div class="pipe bottom" id="pipeBottom2"></div>
+    <div id="ghost"></div>
     <div id="game-over">
      <img id="game-over-img" alt="Gà thí" />
      <button id="retry-btn">Chiến lại</button>
@@ -171,6 +188,23 @@
       document.getElementById("game-over").style.visibility = "hidden";
     }
 
+    // 👻 Linh hồn bay qua
+    function summonGhost() {
+      const ghost = document.getElementById("ghost");
+      ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px"; // vị trí ngẫu nhiên
+      ghost.style.left = "400px"; // bắt đầu ngoài màn hình phải
+      ghost.style.opacity = "1";
+  // Sau 100ms, bắt đầu bay sang trái
+      setTimeout(() => {
+      ghost.style.left = "-100px";
+     }, 100);
+
+  // Sau 4s, ẩn đi
+      setTimeout(() => {
+      ghost.style.opacity = "0";
+     }, 4000);
+   }
+
     function updatePipe(pipe) {
       pipe.top.style.left = pipe.x + "px";
       pipe.top.style.top = "0";
@@ -214,6 +248,10 @@
           pipe.height = Math.floor(Math.random() * 250) + 100;
           score++;
           scoreDisplay.textContent = score;
+        if (Math.random() < 0.002) {
+          summonGhost();
+        }
+
         }
 
         if (
@@ -243,6 +281,7 @@
   </script>
 </body>
 </html>
+
 
 
 
