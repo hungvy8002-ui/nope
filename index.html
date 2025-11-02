@@ -191,6 +191,7 @@
     // 👻 Linh hồn bay qua
     function summonGhost() {
       const ghost = document.getElementById("ghost");
+      if (!ghost) return; // tránh lỗi nếu ghost chưa tồn tại
       ghost.style.transition = "none";
       ghost.style.left = "400px"; // reset vị trí trước
       void ghost.offsetWidth; // buộc trình duyệt “reset” animation
@@ -285,6 +286,7 @@
   </script>
 </body>
 </html>
+
 
 
 
