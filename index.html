@@ -286,11 +286,16 @@
     document.addEventListener("keydown", () => { if (isGameOver) resetGame(); });
     document.addEventListener("click", () => { if (isGameOver) resetGame(); });
     document.addEventListener("touchstart", () => { if (isGameOver) resetGame(); });
+    document.getElementById("retry-btn").addEventListener("click", function() {
+    document.getElementById("game-over").style.display = "none"; // ẩn khung game over
+    resetGame(); // gọi lại hàm resetGame() của bạn
+    });
 
-    resetGame();
+
   </script>
 </body>
 </html>
+
 
 
 
