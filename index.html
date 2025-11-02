@@ -191,6 +191,10 @@
     // 👻 Linh hồn bay qua
     function summonGhost() {
       const ghost = document.getElementById("ghost");
+      ghost.style.transition = "none";
+      ghost.style.left = "400px"; // reset vị trí trước
+      void ghost.offsetWidth; // buộc trình duyệt “reset” animation
+      ghost.style.transition = "left 4s linear"; // khôi phục hiệu ứng
       ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px"; // vị trí ngẫu nhiên
       ghost.style.left = "400px"; // bắt đầu ngoài màn hình phải
       ghost.style.opacity = "1";
@@ -282,6 +286,7 @@
   </script>
 </body>
 </html>
+
 
 
 
