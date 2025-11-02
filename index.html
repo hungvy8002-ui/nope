@@ -189,9 +189,34 @@
       document.getElementById("game-over").style.visibility = "hidden";
     }
 
+ 
     // 👻 Linh hồn bay qua
     function summonGhost() {
       const ghost = document.getElementById("ghost");
+  if (!ghost) {
+    const newGhost = document.createElement("div");
+    newGhost.id = "ghost";
+    newGhost.style.position = "absolute";
+    newGhost.style.width = "60px";
+    newGhost.style.height = "60px";
+    newGhost.style.background = "rgba(255,255,255,0.6)";
+    newGhost.style.borderRadius = "50%";
+    newGhost.style.opacity = "0";
+    document.getElementById("gameContainer").appendChild(newGhost);
+  }
+
+  const g = document.getElementById("ghost");
+  g.style.transition = "none";
+  g.style.left = "400px";
+  void g.offsetWidth;
+  g.style.transition = "left 4s linear";
+  g.style.top = Math.floor(Math.random() * 400 + 50) + "px";
+  g.style.opacity = "1";
+
+  setTimeout(() => g.style.left = "-100px", 100);
+  setTimeout(() => g.style.opacity = "0", 4000);
+}
+
       if (!ghost) return; // tránh lỗi nếu ghost chưa tồn tại
       ghost.style.transition = "none";
       ghost.style.left = "400px"; // reset vị trí trước
@@ -287,6 +312,7 @@
   </script>
 </body>
 </html>
+
 
 
 
