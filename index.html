@@ -247,10 +247,11 @@
           pipe.x = other.x + pipeSpacing;
           pipe.height = Math.floor(Math.random() * 250) + 100;
           score++;
+          if (score % 4 === 0 && score > 0) summonGhost();
           scoreDisplay.textContent = score;
         // 👻 Linh hồn có thể xuất hiện ngẫu nhiên
        // Khi đạt mốc điểm nhất định, gọi linh hồn
-        if (score === 2 || score === 4 || score === 6 || score ===8) {
+        if (score === 4 || score === 8 || score === 12 || score ===16) {
            summonGhost();
         }
 
@@ -283,6 +284,7 @@
   </script>
 </body>
 </html>
+
 
 
 
