@@ -35,7 +35,7 @@
       top: 250px;
       left: 50px;
       transition: transform 0.1s linear;
-      transform: translateY(-100px);
+      transform: translateY(-15px);
     }
 
     /* 盻侵G Dﾆｯ盻唔 */
@@ -228,6 +228,12 @@
         gameLoop();
       }
       velocity = jumpPower;
+      bird.style.transform = 'translateY(-15px)'; 
+
+  // Sau 100ms, trở về trạng thái bình thường
+      setTimeout(() => {
+      bird.style.transform = 'translateY(0)';
+     }, 100);
     }
 
     document.addEventListener("keydown", jump);
@@ -285,6 +291,7 @@
   </script>
 </body>
 </html>
+
 
 
 
