@@ -281,7 +281,16 @@
       isGameOver = true;
       cancelAnimationFrame(animationFrame);
       document.getElementById("game-over").style.visibility = "visible";
-    }
+      document.removeEventListener("click", jump); // tắt click khi game over
+}
+
+retryBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  resetGame();
+  document.addEventListener("click", jump); // bật lại click sau reset
+  isPlaying = true;
+  gameLoop();
+});
 
     document.addEventListener("keydown", () => { if (isGameOver) resetGame(); });
     document.addEventListener("click", () => { if (isGameOver) resetGame(); });
@@ -291,6 +300,7 @@
   </script>
 </body>
 </html>
+
 
 
 
