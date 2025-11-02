@@ -153,14 +153,6 @@
     const bird = document.getElementById("bird");
     const message = document.getElementById("message");
     const scoreDisplay = document.getElementById("score");
-    const retryBtn = document.getElementById("retry-btn");
-retryBtn.addEventListener("click", (e) => {
-  e.stopPropagation(); // ngăn click lan sang container
-  resetGame();
-  isPlaying = true;
-  gameLoop();
-});
-
 
     const pipes = [
       { top: document.getElementById("pipeTop1"), bottom: document.getElementById("pipeBottom1"), x: 400 },
@@ -236,7 +228,7 @@ retryBtn.addEventListener("click", (e) => {
         gameLoop();
       }
       velocity = jumpPower;
-      bird.style.backgroundPositionY = '-35px'; 
+      bird.style.backgroundPositionY = '-20px'; 
 
   // Sau 100ms, trở về trạng thái bình thường
       setTimeout(() => {
@@ -299,8 +291,6 @@ retryBtn.addEventListener("click", (e) => {
   </script>
 </body>
 </html>
-
-
 
 
 
