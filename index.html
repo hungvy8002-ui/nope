@@ -189,30 +189,18 @@
     }
 
     function summonGhosts() {
-    const numberOfGhosts = Math.floor(Math.random() * 3) + 1; // 1, 2 hoặc 3 ghost
+      if (ghost.style.opacity === "1") return; // đang xuất hiện → không spam thêm
 
-    for (let i = 0; i < numberOfGhosts; i++) {
-        const ghost = document.createElement("div");
-        ghost.className = "ghost"; // ghost cần có class .ghost trong CSS
-        document.body.appendChild(ghost);
+  // Vị trí ngẫu nhiên
+  ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px";
+  ghost.style.left = "500px"; // bắt đầu ngoài màn hình phải
+  ghost.style.opacity = "1";
 
-        // Vị trí ngẫu nhiên
-        ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px";
-        ghost.style.left = "400px";
-        ghost.style.opacity = "1";
-        ghost.style.position = "absolute";
+  // Bay sang trái
+  setTimeout(() => { ghost.style.left = "-80px"; }, 100);
 
-        // Bay sang trái
-        setTimeout(() => {
-            ghost.style.left = "-100px";
-        }, 100);
-
-        // Ẩn và xóa ghost sau 4s
-        setTimeout(() => {
-            ghost.style.opacity = "0";
-            ghost.remove();
-        }, 4000);
-    }
+  // Sau 4s, ẩn ghost để tái sử dụng
+  setTimeout(() => { ghost.style.opacity = "0"; }, 2500);
 }
 
 
@@ -291,6 +279,7 @@
   </script>
 </body>
 </html>
+
 
 
 
