@@ -186,6 +186,8 @@
       message.textContent = "Nhấn để Yến bay";
       cancelAnimationFrame(animationFrame);
       document.getElementById("game-over").style.visibility = "hidden";
+      ghost.style.left = "500px";      // vị trí bắt đầu
+      ghost.style.opacity = "0";
     }
 
     function summonGhosts() {
@@ -279,6 +281,7 @@
   </script>
 </body>
 </html>
+
 
 
 
