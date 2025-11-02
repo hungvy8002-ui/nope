@@ -153,6 +153,14 @@
     const bird = document.getElementById("bird");
     const message = document.getElementById("message");
     const scoreDisplay = document.getElementById("score");
+    const retryBtn = document.getElementById("retry-btn");
+retryBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // ngăn click lan sang container
+  resetGame();
+  isPlaying = true;
+  gameLoop();
+});
+
 
     const pipes = [
       { top: document.getElementById("pipeTop1"), bottom: document.getElementById("pipeBottom1"), x: 400 },
@@ -291,6 +299,7 @@
   </script>
 </body>
 </html>
+
 
 
 
