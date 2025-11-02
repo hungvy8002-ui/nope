@@ -259,7 +259,9 @@
           pipe.height = Math.floor(Math.random() * 250) + 100;
           score++;
           scoreDisplay.textContent = score;
-          if (score % 4 === 0 && score > 0) summonGhost();
+          if (score % 4 === 0 && score > 0) {
+            summonGhosts();
+          }
          }
 
         if (
@@ -289,6 +291,7 @@
   </script>
 </body>
 </html>
+
 
 
 
