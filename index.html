@@ -228,7 +228,7 @@
         gameLoop();
       }
       velocity = jumpPower;
-      bird.style.backgroundPositionY = '-35px'; 
+      bird.style.backgroundPositionY = '-20px'; 
 
   // Sau 100ms, trở về trạng thái bình thường
       setTimeout(() => {
@@ -283,18 +283,14 @@
       document.getElementById("game-over").style.visibility = "visible";
     }
 
-    document.getElementById("retry-btn").addEventListener("click", function() {
-    document.getElementById("game-over").style.display = "none"; // ẩn khung game over
-    resetGame(); // gọi lại hàm resetGame() của bạn
-    });
+    document.addEventListener("keydown", () => { if (isGameOver) resetGame(); });
+    document.addEventListener("click", () => { if (isGameOver) resetGame(); });
+    document.addEventListener("touchstart", () => { if (isGameOver) resetGame(); });
 
-
+    resetGame();
   </script>
 </body>
 </html>
-
-
-
 
 
 
