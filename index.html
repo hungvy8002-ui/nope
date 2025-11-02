@@ -191,18 +191,22 @@
     }
 
     function summonGhosts() {
+      ghost.style.transition = "none";
+      ghost.style.left = "500px"; 
+      ghost.style.opacity = "1";
 
-  // Vị trí ngẫu nhiên
-  ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px";
-  ghost.style.left = "500px"; // bắt đầu ngoài màn hình phải
-  ghost.style.opacity = "1";
+  // Đặt vị trí top ngẫu nhiên
+      ghost.style.top = Math.floor(Math.random() * 400 + 50) + "px";
 
-  // Bay sang trái
-  setTimeout(() => { ghost.style.left = "-80px"; }, 100);
+  // Bật lại transition để ghost bay sang trái
+    setTimeout(() => {
+      ghost.style.transition = "opacity 1s linear, left 4s linear";
+      ghost.style.left = "-80px";
+    }, 50);
 
-  // Sau 4s, ẩn ghost để tái sử dụng
-  setTimeout(() => { ghost.style.opacity = "0"; }, 2500);
-}
+  // Ẩn ghost sau 2.5s
+    setTimeout(() => { ghost.style.opacity = "0"; }, 2500);
+  }
 
 
     function updatePipe(pipe) {
@@ -280,6 +284,7 @@
   </script>
 </body>
 </html>
+
 
 
 
