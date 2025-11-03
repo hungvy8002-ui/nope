@@ -35,7 +35,6 @@
       top: 250px;
       left: 50px;
       transition: transform 0.1s linear;
-      background-position: center 0px;
     }
 
     /* 盻侵G Dﾆｯ盻唔 */
@@ -227,13 +226,7 @@
         message.textContent = "";
         gameLoop();
       }
-      velocity = jumpPower;
-      bird.style.backgroundPositionY = '-35px'; 
-
-  // Sau 100ms, trở về trạng thái bình thường
-      setTimeout(() => {
-      bird.style.backgroundPositionY = '0px';
-     }, 100);
+        velocity = jumpPower; 
     }
 
     document.addEventListener("keydown", jump);
@@ -291,6 +284,7 @@
   </script>
 </body>
 </html>
+
 
 
 
